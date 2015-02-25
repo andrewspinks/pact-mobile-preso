@@ -1,0 +1,5 @@
+github "Alamofire/Alamofire" "1.1.4"
+github "Thomvis/BrightFutures" "986398167fe6d315b42718e593b6e35412335633"
+github "Quick/Nimble" "9538a301d5320fd607f01c931dc282868b0e827a"
+github "Quick/Quick" "f8c9ff9f499fc5ea72ff55c1c5eed32e1ff303ea"
+github "DiUS/pact-consumer-swift" "2ddf576393c7f87d65153713c8df189fc2d104d3"
