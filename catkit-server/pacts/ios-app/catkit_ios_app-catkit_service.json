@@ -1,0 +1,32 @@
+{
+  "consumer": {
+    "name": "CatKit iOS App"
+  },
+  "provider": {
+    "name": "CatKit Service"
+  },
+  "interactions": [
+    {
+      "description": "a request for feeding",
+      "request": {
+        "method": "get",
+        "path": "/feedMe",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "response": "Meow!"
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecificationVersion": "1.0.0"
+  }
+}

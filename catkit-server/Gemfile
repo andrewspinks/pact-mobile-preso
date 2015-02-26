@@ -1,0 +1,21 @@
+ruby '2.1.1'
+source 'https://rubygems.org'
+
+# Distribute your app as a gem
+# gemspec
+
+# Server requirements
+# gem 'thin' # or mongrel
+# gem 'trinidad', :platform => 'jruby'
+
+# Project requirements
+gem 'rake'
+gem 'sinatra'
+
+# Component requirements
+gem 'roar'
+
+gem 'shotgun'
+
+# Test requirements
+gem 'pact'

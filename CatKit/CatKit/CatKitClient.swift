@@ -5,6 +5,7 @@ public class CatKitClient {
   
   public init(baseUrl : String) {
     self.baseUrl = baseUrl
+    Alamofire.Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders?.updateValue("application/json", forKey: "Accept")
   }
   
   public func feedMe(feedMeResponse: (String) -> Void) {

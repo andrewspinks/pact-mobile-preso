@@ -1,0 +1,33 @@
+*.gem
+*.rbc
+/.bundle
+.config
+.powenv
+InstalledFiles
+lib/bundler/man
+/log
+/pkg
+rdoc
+/tmp
+/VERSION
+
+# Reports
+/spec/reports
+/reports
+/coverage
+
+# YARD artifacts
+.yardoc
+_yardoc
+doc/
+.bin
+
+# Editor files
+*.sublime*
+*.swp
+/.idea
+
+# Gems
+/vendor/ruby
+
+.env

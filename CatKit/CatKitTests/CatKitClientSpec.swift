@@ -20,8 +20,12 @@ class CatKitClientSpec: QuickSpec {
         var feedingResponse: String = ""
 
         catKitService!.uponReceiving("a request for feeding")
-                      .withRequest(PactHTTPMethod.Get, path: "/feedMe")
-                      .willRespondWith(200,
+                     .withRequest(
+                        .Get,
+                        path: "/feedMe",
+                        headers: ["Accept": "application/json"])
+                     .willRespondWith(
+                        200,
                         headers: ["Content-Type": "application/json"],
                         body: [ "response" : "Meow!"])
 
