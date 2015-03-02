@@ -4,13 +4,13 @@ This is a demonstation project for using the [Swift Pact library](https://github
 ### To build and run Pact Swift Tests
 The application uses Carthage for building library dependencies. If you are not familiar with carthage, see [Carthage](https://github.com/Carthage/Carthage) for more details.
 
-* Install the pact mock service gem (required for writing pact tests).
+* Install the pact mock service gem (required for running the iOS Pact tests).
 ```
 gem install pact-mock_service -v 0.3.0
 ```
-*NB:* if you are using the system ruby, you will need to install the gem using sudo. Better options would be to use something like rbenv, rvm, chruby
+*NB:* if you are using the system ruby, you will need to install the gem using sudo. Better options would be to use something like rbenv / rvm / chruby.
 
-* Download and compile library dependencies:
+* Download and compile the iOS library dependencies:
 ```
 CatKit $ carthage bootstrap
 ```
@@ -18,9 +18,9 @@ CatKit $ carthage bootstrap
 
 * Run the iOS unit tests. (can be done from within XCode if you prefer)
 ```
-xcodebuild -project CatKit.xcodeproj -scheme CatKit clean test -sdk iphonesimulator
+CatKit $ xcodebuild -project CatKit.xcodeproj -scheme CatKit clean test -sdk iphonesimulator
 ```
-This will run the unit tests (Pact Tests). After the pact tests run successfully the generated pact files should live in the `tmp\pacts\` directory. A log of the pact test interactions can be found here `tmp\pact.log`. If the tests fail, try looking in here for details as to why.
+This will run the unit tests (Pact Tests). After the pact tests run successfully the generated pact files should live in the `CatKit/tmp/pacts/` directory. A log of the pact test interactions can be found here `CatKit/tmp/pact.log`. If the tests fail, try looking in here for details as to why.
 
 ### Verify the ruby server with the generated pact file
 Copy over the generated pact file from the iOS project, to the ruby server.
