@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CatKit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +16,59 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hungry" translatesAutoresizingMaskIntoConstraints="NO" id="3qN-Zj-Wyb">
+                                <rect key="frame" x="16" y="20" width="568" height="410"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Z0-GW-qv8">
+                                <rect key="frame" x="225" y="430" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="tWw-ok-oLQ"/>
+                                    <constraint firstAttribute="width" constant="150" id="vK6-cr-bHO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <state key="normal" backgroundImage="feed_me_button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="192" y="506" width="150" height="150"/>
+                                </variation>
+                                <connections>
+                                    <action selector="feedMe:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Iwp-bH-UQL"/>
+                                </connections>
+                            </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cat response" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NNH-dc-Lyy">
+                                <rect key="frame" x="212.5" y="478.5" width="175" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="NNH-dc-Lyy" secondAttribute="bottom" constant="85" id="AAG-Ja-T1T"/>
+                            <constraint firstItem="3qN-Zj-Wyb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="KMe-69-hl6"/>
+                            <constraint firstAttribute="centerX" secondItem="NNH-dc-Lyy" secondAttribute="centerX" id="MaW-oR-R3u"/>
+                            <constraint firstItem="3qN-Zj-Wyb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="cEc-ym-cH1"/>
+                            <constraint firstAttribute="centerX" secondItem="3Z0-GW-qv8" secondAttribute="centerX" id="ex0-fN-QGA"/>
+                            <constraint firstItem="3Z0-GW-qv8" firstAttribute="top" secondItem="3qN-Zj-Wyb" secondAttribute="bottom" id="f3b-B2-VsJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3qN-Zj-Wyb" secondAttribute="trailing" id="pm5-Kg-3rA"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="3Z0-GW-qv8" secondAttribute="bottom" constant="20" id="rFc-34-3d8"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="catImageView" destination="3qN-Zj-Wyb" id="18N-GR-1Ca"/>
+                        <outlet property="feedMeButton" destination="3Z0-GW-qv8" id="Fhn-uu-ukn"/>
+                        <outlet property="responseText" destination="NNH-dc-Lyy" id="jwc-bV-KMD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="449" y="298"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="feed_me_button" width="370" height="370"/>
+        <image name="hungry" width="1259" height="1510"/>
+    </resources>
 </document>

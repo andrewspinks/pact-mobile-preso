@@ -1,25 +1,28 @@
-//
-//  ViewController.swift
-//  CatKit
-//
-//  Created by Andrew Spinks on 25/02/2015.
-//  Copyright (c) 2015 Andrew Spinks. All rights reserved.
-//
 
 import UIKit
 
 class ViewController: UIViewController {
 
+  @IBOutlet weak var catImageView: UIImageView!
+  @IBOutlet weak var feedMeButton: UIButton!
+  @IBOutlet weak var responseText: UILabel!
+  var catKitClient = CatKitClient(baseUrl: "http:localhost:4567")
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
   }
 
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
   }
-
-
+  
+  @IBAction func feedMe(source: UIButton) -> Void {
+    self.catKitClient.feedMe { (response) -> Void in
+      self.catImageView.image = UIImage(named: "satisfied")
+      self.responseText.text = response
+      self.responseText.hidden = false
+      self.feedMeButton.hidden = true
+    }
+  }
 }
 
