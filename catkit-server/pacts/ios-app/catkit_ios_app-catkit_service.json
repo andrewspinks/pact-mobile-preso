@@ -21,7 +21,8 @@
           "Content-Type": "application/json"
         },
         "body": {
-          "response": "Meow!"
+          "message": "Meow!",
+          "status": "happy"
         }
       }
     }

@@ -17,7 +17,7 @@ class CatKitClientSpec: QuickSpec {
       }
 
       it("it feeds my cat") {
-        var feedingResponse: String = ""
+        var complete: Bool = false
 
         catKitService!.uponReceiving("a request for feeding")
                      .withRequest(
@@ -27,14 +27,17 @@ class CatKitClientSpec: QuickSpec {
                      .willRespondWith(
                         200,
                         headers: ["Content-Type": "application/json"],
-                        body: [ "response" : "Meow!"])
+                        body: [ "message": "Meow!", "status": "happy"])
 
         //Run the tests
         catKitService!.run { (testComplete) -> Void in
 
           // Test the client
-          catKitClient!.feedMe { response in
-            feedingResponse = response
+          catKitClient!.feedMe { (message, status) -> Void in
+            expect(status).to(equal("happy"))
+            expect(message).to(equal("Meow!"))
+            
+            complete = true
             testComplete()
           }
 
@@ -42,7 +45,7 @@ class CatKitClientSpec: QuickSpec {
         }
 
         // Test assertion, waiting for asynch requests to finish
-        expect(feedingResponse).toEventually(equal("Meow!"))
+        expect(complete).toEventually(beTrue())
       }
     }
   }

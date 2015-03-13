@@ -13,5 +13,5 @@ set :protection, false
 get '/feedMe' do
 	content_type :json
 
-	{ "response" => "Meow!" }.to_json
+	[{ "message" => "Meow!", "status" => "happy" }].to_json
 end

@@ -17,7 +17,7 @@ class ViewController: UIViewController {
   }
   
   @IBAction func feedMe(source: UIButton) -> Void {
-    self.catKitClient.feedMe { (response) -> Void in
+    self.catKitClient.feedMe { (response, status) -> Void in
       self.catImageView.image = UIImage(named: "satisfied")
       self.responseText.text = response
       self.responseText.hidden = false
