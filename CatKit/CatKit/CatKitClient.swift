@@ -5,13 +5,17 @@ public class CatKitClient {
   
   public init(baseUrl: String) {
     self.baseUrl = baseUrl
-    Alamofire.Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders?.updateValue("application/json", forKey: "Accept")
   }
   
   public func feedMe(feedMeResponse: (String, String) -> Void) {
-    Alamofire.request(.GET, "\(baseUrl)/feedMe")
-      .responseJSON { (_, _, json, _) in
-        if let json = json as? Dictionary<String, String> {
+    let headers = [
+      "Authorization": "Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==",
+      "Accept": "application/json"
+    ]
+    
+    Alamofire.request(.GET, "\(baseUrl)/feedMe", headers: headers)
+      .responseJSON { (result) in
+        if let json = result.result.value as? Dictionary<String, String> {
           feedMeResponse(json["message"]!, json["status"]!)
         }
       }

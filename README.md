@@ -12,7 +12,7 @@ gem install pact-mock_service -v 0.3.0
 
 * Download and compile the iOS library dependencies:
 ```
-CatKit $ carthage bootstrap
+CatKit $ carthage bootstrap --no-use-binaries  --platform iOS
 ```
 (Execute from the CatKit directory)
 

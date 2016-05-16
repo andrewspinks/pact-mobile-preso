@@ -21,11 +21,11 @@ class CatKitClientSpec: QuickSpec {
 
         catKitService!.uponReceiving("a request for feeding")
                      .withRequest(
-                        .Get,
+                      method: .GET,
                         path: "/feedMe",
                         headers: ["Accept": "application/json"])
                      .willRespondWith(
-                        200,
+                        status: 200,
                         headers: ["Content-Type": "application/json"],
                         body: [ "message": "Meow!", "status": "happy"])
 
