@@ -1,12 +1,12 @@
 # Sample iOS Swift consumer and ruby provider.
-This is a demonstation project for using the [Swift Pact library](https://github.com/DiUS/pact-consumer-swift).
+This is a demonstration project for using the [Swift Pact library](https://github.com/DiUS/pact-consumer-swift).
 
 ### To build and run Pact Swift Tests
 The application uses Carthage for building library dependencies. If you are not familiar with carthage, see [Carthage](https://github.com/Carthage/Carthage) for more details.
 
 * Install the pact mock service gem (required for running the iOS Pact tests).
 ```
-gem install pact-mock_service -v 0.3.0
+gem install pact-mock_service -v 0.5.1
 ```
 *NB:* if you are using the system ruby, you will need to install the gem using sudo. Better options would be to use something like rbenv / rvm / chruby.
 
@@ -32,6 +32,11 @@ catkit-server $ cp ../CatKit/tmp/pacts/catkit_ios_app-catkit_service.json pacts/
 Run the pact verification to verify that the server conforms to the CatKit client.
 ```
 catkit-server $ bundle exec rake pact:verify
+```
+
+NB: to run the catkit-server:
+```
+catkit-server $ bundle exec rackup config.ru
 ```
 
 # More reading
