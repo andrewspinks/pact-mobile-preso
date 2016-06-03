@@ -6,7 +6,7 @@ The application uses Carthage for building library dependencies. If you are not 
 
 * Install the pact mock service gem (required for running the iOS Pact tests).
 ```
-gem install pact-mock_service -v 0.5.1
+gem install pact-mock_service -v 0.9.0
 ```
 *NB:* if you are using the system ruby, you will need to install the gem using sudo. Better options would be to use something like rbenv / rvm / chruby.
 

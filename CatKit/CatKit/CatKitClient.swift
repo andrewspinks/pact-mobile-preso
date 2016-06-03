@@ -9,7 +9,6 @@ public class CatKitClient {
   
   public func feedMe(feedMeResponse: (String, String) -> Void) {
     let headers = [
-      "Authorization": "Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==",
       "Accept": "application/json"
     ]
     
