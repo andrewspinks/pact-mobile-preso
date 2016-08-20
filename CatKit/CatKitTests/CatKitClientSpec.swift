@@ -10,15 +10,11 @@ class CatKitClientSpec: QuickSpec {
 
     describe("tests fulfilling all expected interactions") {
       beforeEach {
-        catKitService = MockService(provider: "CatKit Service", consumer: "CatKit iOS App", done: { result in
-          expect(result).to(equal(PactVerificationResult.Passed))
-        })
+        catKitService = MockService(provider: "CatKit Service", consumer: "CatKit iOS App")
         catKitClient = CatKitClient(baseUrl: catKitService!.baseUrl)
       }
 
       it("it feeds my cat") {
-        var complete: Bool = false
-
         catKitService!.uponReceiving("a request for feeding")
                      .withRequest(
                       method: .GET,
@@ -31,21 +27,13 @@ class CatKitClientSpec: QuickSpec {
 
         //Run the tests
         catKitService!.run { (testComplete) -> Void in
-
           // Test the client
           catKitClient!.feedMe { (message, status) -> Void in
             expect(status).to(equal("happy"))
             expect(message).to(equal("Meow!"))
-            
-            complete = true
             testComplete()
           }
-
-          return
         }
-
-        // Test assertion, waiting for asynch requests to finish
-        expect(complete).toEventually(beTrue())
       }
     }
   }
