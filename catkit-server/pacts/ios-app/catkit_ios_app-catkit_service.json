@@ -10,7 +10,7 @@
       "description": "a request for feeding",
       "request": {
         "method": "get",
-        "path": "/feedMe",
+        "path": "/feed-me",
         "headers": {
           "Accept": "application/json"
         }

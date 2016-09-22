@@ -10,7 +10,7 @@ end
 
 set :protection, false
 
-get '/feedMe' do
+get '/feed-me' do
 	content_type :json
 
 	{ "message" => "Meow!", "status" => "happy" }.to_json

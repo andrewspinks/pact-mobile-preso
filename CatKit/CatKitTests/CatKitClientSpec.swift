@@ -18,7 +18,7 @@ class CatKitClientSpec: QuickSpec {
         catKitService!.uponReceiving("a request for feeding")
                      .withRequest(
                       method: .GET,
-                        path: "/feedMe",
+                        path: "/feed-me",
                         headers: ["Accept": "application/json"])
                      .willRespondWith(
                         status: 200,

@@ -12,7 +12,7 @@ public class CatKitClient {
       "Accept": "application/json"
     ]
     
-    Alamofire.request(.GET, "\(baseUrl)/feedMe", headers: headers)
+    Alamofire.request(.GET, "\(baseUrl)/feed-me", headers: headers)
       .responseJSON { (result) in
         if let json = result.result.value as? Dictionary<String, String> {
           feedMeResponse(json["message"]!, json["status"]!)
