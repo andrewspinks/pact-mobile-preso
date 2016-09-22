@@ -25,6 +25,27 @@
           "status": "happy"
         }
       }
+    },
+    {
+      "description": "a request for feeding",
+      "provider_state": "We are out of cat food",
+      "request": {
+        "method": "get",
+        "path": "/feed-me",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 400,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "message": "Out of food dude",
+          "status": "grumpy"
+        }
+      }
     }
   ],
   "metadata": {

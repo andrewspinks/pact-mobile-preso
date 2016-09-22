@@ -35,6 +35,29 @@ class CatKitClientSpec: QuickSpec {
           }
         }
       }
+
+      it("400 is returned when there is no food") {
+        catKitService!.given("We are out of cat food")
+          .uponReceiving("a request for feeding")
+          .withRequest(
+            method: .GET,
+            path: "/feed-me",
+            headers: ["Accept": "application/json"])
+          .willRespondWith(
+            status: 400,
+            headers: ["Content-Type": "application/json"],
+            body: [ "message": "Out of food dude", "status": "grumpy"])
+
+        //Run the tests
+        catKitService!.run { (testComplete) -> Void in
+          // Test the client
+          catKitClient!.feedMe { (message, status) -> Void in
+            expect(status).to(equal("grumpy"))
+            expect(message).to(equal("Out of food dude"))
+            testComplete()
+          }
+        }
+      }
     }
   }
 }
